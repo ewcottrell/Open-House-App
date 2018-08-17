@@ -6,17 +6,23 @@ namespace OpenHouse
 {
     public class Realtor
     {
-        public string Name { get; set; }
-
+        public string Name { get; private set; }
+        private User Viewer { get; set; }
         public void Greet()
         {
-            Console.WriteLine("Hi! I'm Evan, the realtor for this home. Welcome. What's your name?");
-            Console.ReadLine();
+            Console.WriteLine("Hi! I'm " + Name + ", the realtor for this home. Welcome. What's your name?");
+            string response = Console.ReadLine();
+            Viewer = new User(response);
+        }
+        public Realtor(string name)
+        {
+            Name = name;
         }
 
         public void Speak(string message)
         {
             Console.WriteLine(message);
+            Console.WriteLine("Welcome " + Viewer.Name + " to the open house!");
         }
 
         public void GiveRoomDescription(Room room)
