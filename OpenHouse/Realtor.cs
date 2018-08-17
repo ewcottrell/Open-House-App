@@ -68,8 +68,7 @@ namespace OpenHouse
             Console.WriteLine("Well, thats all the rooms inside. Lets walk outside before you go " +
                               "so that may give you a business card.");
             Console.WriteLine("Thanks for coming. Hope to receive an offer from you soon!");
-
-            Console.ReadLine();
+                        
         }
 
     }
