@@ -30,32 +30,13 @@ namespace OpenHouse
 
         public void RealtorScript()
         {
-            List<string> PositiveResponse = new List<string> { "yes", "yea", "sure", "ok", "si", "ye" };
-            List<string> NegativeResponse = new List<string> { "no", "not right now", "no thanks", "no. thanks.", "not today" };
-
-            for (int i = 0; i < House.Rooms.Count; i++)
+            
+            foreach(Room room in House.Rooms)
             {
-                Console.WriteLine("Would you like to see the " + House.Rooms[i].Name + "?");
-
-                string answer = Console.ReadLine().ToLower();
-
-                foreach (string PossibleNegativeResponse in NegativeResponse)
+                if (User.YesToQuestion("Would you like to see the " + room.Name + "?"))
                 {
-                    
-                    if (answer == PossibleNegativeResponse)
-                    {
-                        break;
-                    }
-                }
-                foreach (string PossiblePositiveResponses in PositiveResponse)
-                {
-                    if (answer == PossiblePositiveResponses)
-                    {
-                        Console.WriteLine($"Ok. The {House.Rooms[i].Name} has...");
-                        GiveRoomDescription(House.Rooms[i]);
-                        break;
-                    }
-
+                    Console.WriteLine($"Ok. The {room.Name} has...");
+                    GiveRoomDescription(room);
                 }
             }
             Console.WriteLine("Well, thats all the rooms inside. Lets walk outside before you go " +
