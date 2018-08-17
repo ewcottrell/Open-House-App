@@ -33,18 +33,18 @@ namespace OpenHouse
             List<string> PositiveResponse = new List<string> { "yes", "yea", "sure", "ok", "si", "ye" };
             List<string> NegativeResponse = new List<string> { "no", "not right now", "no thanks", "no. thanks.", "not today" };
 
-            for (int i = 0; i < House.Rooms.Count;)
+            for (int i = 0; i < House.Rooms.Count; i++)
             {
                 Console.WriteLine("Would you like to see the " + House.Rooms[i].Name + "?");
 
-                string answer = Console.ReadLine();
+                string answer = Console.ReadLine().ToLower();
 
                 foreach (string PossibleNegativeResponse in NegativeResponse)
                 {
                     
                     if (answer == PossibleNegativeResponse)
                     {
-                         i++;
+                        break;
                     }
                 }
                 foreach (string PossiblePositiveResponses in PositiveResponse)
@@ -53,7 +53,7 @@ namespace OpenHouse
                     {
                         Console.WriteLine($"Ok. The {House.Rooms[i].Name} has...");
                         GiveRoomDescription(House.Rooms[i]);
-                        i++;
+                        break;
                     }
 
                 }
