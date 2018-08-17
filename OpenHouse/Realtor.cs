@@ -13,6 +13,7 @@ namespace OpenHouse
             Console.WriteLine("Hi! I'm " + Name + ", the realtor for this home. Welcome. What's your name?");
             string response = Console.ReadLine();
             Viewer = new User(response);
+            Console.WriteLine("Welcome " + Viewer.Name + " to the open house!");
         }
         public Realtor(string name)
         {
@@ -22,7 +23,7 @@ namespace OpenHouse
         public void Speak(string message)
         {
             Console.WriteLine(message);
-            Console.WriteLine("Welcome " + Viewer.Name + " to the open house!");
+            
         }
 
         public void GiveRoomDescription(Room room)
