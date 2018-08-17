@@ -8,26 +8,19 @@ namespace OpenHouse
 
         public static void Main(string[] args)
         {
-            House House = new House();
+            House House = new House() { Address = "123 Main Street" };
             /*Go back and create classes for each of your rooms and make a 'create' method
             that creates each room and adds it and it's descriptions to the list of rooms.*/
 
-            Room Kitchen = new Room();
+            Room Kitchen = new Room() { Name = "Kitchen" };
             House.Rooms.Add(Kitchen);
-            Kitchen.Name = "kitchen";
-            Kitchen.Descriptions.Add("ten foot ceilings");
-            Kitchen.Descriptions.Add("real hardwood floors");
-            Kitchen.Descriptions.Add("marble counters");
-            Kitchen.Descriptions.Add("plenty of cabinet space");
-            Kitchen.Descriptions.Add("new plumbing");
+            Kitchen.Descriptions = new List<string> { "ten foot ceilings", "real hardwood floors",
+                "marble counters", "plenty of cabinet space", "new plumbing" };
 
-            Room Den = new Room();
+            Room Den = new Room() { Name = "Den" };
             House.Rooms.Add(Den);
-            Den.Name = "den";
-            Den.Descriptions.Add("Harwood floors");
-            Den.Descriptions.Add("Ten foot ceiling");
-            Den.Descriptions.Add("Ceiling fan to conserve energy");
-            Den.Descriptions.Add("fresh paint");
+            Den.Descriptions = new List<string> { "Hardwood floors", "Ten foot ceiling",
+                "Ceiling fan to conserve energy", "fresh paint" };
 
             Room LivingRoom = new Room();
             House.Rooms.Add(LivingRoom);
@@ -73,13 +66,9 @@ namespace OpenHouse
             GuestBath.Descriptions.Add("new harwood floors");
             GuestBath.Descriptions.Add("new plumbing");
 
-            Realtor agent = new Realtor();
-            agent.Name = "Evan";
+            Realtor agent = new Realtor() { Name = "Evan" };
             agent.Greet();
             agent.RealtorScript();
-
-            Console.ReadLine();
-
         }
     }
 }
