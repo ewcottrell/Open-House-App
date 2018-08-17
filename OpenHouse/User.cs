@@ -4,7 +4,12 @@ namespace OpenHouse
 {
     public class User
     {
-        public List<string> Name { get; set; } 
+        public string Name { get; private set; } 
+
+        public User(string name)
+        {
+            Name = name;
+        }
 
     }
 }
